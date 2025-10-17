@@ -1,0 +1,30 @@
+[
+  {
+    "city": "manila",
+    "country": "PH",
+    "temperature": 32.06,
+    "description": "broken clouds",
+    "timestamp": "2025-10-17 13:06:35"
+  },
+  {
+    "city": "gubat",
+    "country": "PH",
+    "temperature": 27.83,
+    "description": "overcast clouds",
+    "timestamp": "2025-10-17 13:11:19"
+  },
+  {
+    "city": "sorsogon",
+    "country": "PH",
+    "temperature": 26.91,
+    "description": "overcast clouds",
+    "timestamp": "2025-10-17 13:11:34"
+  },
+  {
+    "city": "davao",
+    "country": "PH",
+    "temperature": 29.2,
+    "description": "overcast clouds",
+    "timestamp": "2025-10-17 13:12:04"
+  }
+]
