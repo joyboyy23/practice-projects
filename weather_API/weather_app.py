@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Weather CLI Application
 
-API_KEY = '071bde587b73af08b4358094ece07625' # my API key
+API_KEY = 'your api key here' # your API key
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 def get_weather(city):
@@ -142,7 +142,7 @@ def main():
     print("   Powered by OpenWeatherMap")
 
     # check if API key is set
-    if API_KEY != '071bde587b73af08b4358094ece07625':
+    if API_KEY != 'your api here':
         print("\n⚠️  Please set your API key first!")
         print("   1. Go to: https://openweathermap.org/api")
         print("   2. Sign up for free account")
