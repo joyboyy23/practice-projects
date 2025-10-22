@@ -1,0 +1,100 @@
+# Create project directory
+mkdir django-projects
+cd django-projects
+
+# Create virtual environment (IMPORTANT!)
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# Install Django
+pip install django
+
+# Verify installation
+python -m django --version  # Should show 5.x
+
+# Create requirements.txt
+pip freeze > requirements.txt
+
+==================================================================
+# Create Django project
+django-admin startproject myblog
+
+# Project structure created:
+myblog/
+├── myblog/          # Project configuration
+│   ├── __init__.py
+│   ├── settings.py  # Settings (IMPORTANT!)
+│   ├── urls.py      # URL routing
+│   ├── asgi.py      # Deployment
+│   └── wsgi.py      # Deployment
+└── manage.py        # Management commands
+
+# Navigate into project
+cd myblog
+
+# Run development server
+python manage.py runserver
+
+# Visit: http://127.0.0.1:8000/
+# You should see "The install worked successfully!"
+======================================================================
+
+# Django follows MVT pattern (Model-View-Template)
+# Similar to MVC but Django calls it differently:
+
+# MODEL (M) - Database layer
+# Handles data structure and database operations
+# Example: Blog posts, users, comments
+
+# VIEW (V) - Business logic
+# Processes requests, gets data from models
+# Returns responses (usually HTML)
+
+# TEMPLATE (T) - Presentation layer
+# HTML files with Django template syntax
+# Displays data from views
+
+# URL ROUTER - Maps URLs to views
+# Example: /blog/ → calls blog_view()
+========================================================================
+Django Request-Response Flow:
+1. User visits URL: /blog/
+2. Django URL Router: "Which view handles /blog/?"
+3. View function: Gets data from Model
+4. View renders: Template with data
+5. Response: HTML page sent to user
+
+===========================================================================
+# Apps = modular components of your project
+# Project can have multiple apps
+# Example: blog app, users app, api app
+
+# Create blog app
+python manage.py startapp blog
+
+# App structure created:
+blog/
+├── migrations/      # Database changes
+├── __init__.py
+├── admin.py        # Admin interface
+├── apps.py         # App configuration
+├── models.py       # Database models
+├── tests.py        # Tests
+└── views.py        # View functions
+================================================================================
+# myblog/settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',  # Add this line
+]

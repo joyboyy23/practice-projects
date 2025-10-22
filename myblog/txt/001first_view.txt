@@ -1,0 +1,29 @@
+===blog/views.py
+from django.http import HttpResponse
+
+def home(request):
+    """Simple view returning text"""
+    return HttpResponse("Hello, Django!")
+
+def about(request):
+    """About page"""
+    return HttpResponse("<h1>About Page</h1><p>This is my blog!</p>")
+===================================================================
+###blog/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+]
+===================================================================
+###myblog/urls.py (main project urls)
+from django.contrib import admin
+from django.urls import path, include  # Add include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('blog.urls')),  # Include blog URLs
+]
+

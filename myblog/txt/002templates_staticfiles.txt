@@ -1,0 +1,42 @@
+# Create templates folder
+mkdir -p blog/templates/blog
+
+# Structure:
+blog/
+└── templates/
+    └── blog/
+        ├── base.html
+        ├── home.html
+        └── about.html
+======================================================================================================
+#go add content at base, home and about html
+
+Update Views to Use Templates
+###blog/views.py
+from django.shortcuts import render
+
+def home(request):
+    """Home page with blog posts"""
+    return render(request, 'blog/home.html')
+
+def about(request):
+    """About page"""
+    return render(request, 'blog/about.html')
+==============================================================================================================================
+DAY 3: Passing Data to Templates
+###context data
+# Context = Dictionary of data passed to template
+# View prepares data → Template displays it
+
+# Example:
+def home(request):
+    context = {
+        'title': 'Home',
+        'posts': [...],
+        'user': 'John'
+    }
+    return render(request, 'home.html', context)
+
+# In template:
+# {{ title }} → Displays: Home
+# {{ user }}  → Displays: John

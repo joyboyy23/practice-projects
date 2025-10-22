@@ -1,0 +1,53 @@
+<!-- Common Django Template Tags -->
+
+<!-- Variables -->
+{{ variable }}
+{{ post.title }}
+{{ user.username }}
+
+<!-- Filters -->
+{{ text|lower }}           <!-- lowercase -->
+{{ text|upper }}           <!-- UPPERCASE -->
+{{ text|title }}           <!-- Title Case -->
+{{ text|truncatewords:30 }} <!-- First 30 words -->
+{{ date|date:"M d, Y" }}   <!-- Format date -->
+{{ posts|length }}         <!-- Count -->
+
+<!-- For loops -->
+{% for post in posts %}
+    <p>{{ post.title }}</p>
+{% endfor %}
+
+<!-- If statements -->
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+{% else %}
+    <p>Please log in</p>
+{% endif %}
+
+<!-- URL tag -->
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'post-detail' post.id %}">Read more</a>
+
+<!-- Template inheritance -->
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Your content here -->
+{% endblock %}
+
+<!-- Include other templates -->
+{% include 'navbar.html' %}
+========================================================================================================================
+###URL Parameters
+# Static URL: /about/
+path('about/', views.about, name='about')
+
+# Dynamic URL: /post/1/, /post/2/, /post/3/
+path('post/<int:id>/', views.post_detail, name='post-detail')
+
+# URL parameters:
+# <int:id>    → Integer
+# <str:slug>  → String
+# <uuid:pk>   → UUID
+========================================================================================================================
+
